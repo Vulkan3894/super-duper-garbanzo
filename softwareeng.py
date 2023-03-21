@@ -11,7 +11,7 @@ def encoder(password): #Pedro Leon
 def decoder(encoded): #Fernando Hernandez Martin
     decoded = ""
     for digit in encoded:
-        if int(digit) <= 6:
+        if int(digit) >= 3:
             decoded += str(int(digit) - 3)
         else:
             decoded += str(int(digit) + 7)
