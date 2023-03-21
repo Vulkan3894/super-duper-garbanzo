@@ -1,5 +1,5 @@
 #encode a string of 8 numbers to a new encoded password
-def encoder(password):
+def encoder(password): #Pedro Leon
 
     encoded_password = ""
     for digit in password:
@@ -7,6 +7,15 @@ def encoder(password):
         shifted_digit = str((int(digit) + 3) % 10)
         encoded_password += shifted_digit
     return encoded_password
+
+def decoder(encoded): #Fernando Hernandez Martin
+    decoded = ""
+    for digit in encoded:
+        if int(digit) <= 6:
+            decoded += str(int(digit) - 3)
+        else:
+            decoded += str(int(digit) + 7)
+    return decoded
 
 def main():
     #Menu
@@ -24,7 +33,9 @@ def main():
             encoded = encoder(password)
             print("Your password has been encoded and stored!")
         elif choice == 2:
-            print(f"The encoded password is {encoded}, and the original password is {password}.") 
+            print(f"The encoded password is {encoded}, and the original password is {decoder(encoded)}.") 
         elif choice == 3:
             break
 
+if __name__ == '__main__':
+    main()
